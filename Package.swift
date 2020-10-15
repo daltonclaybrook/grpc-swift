@@ -19,8 +19,8 @@ import PackageDescription
 let package = Package(
   name: "grpc-swift",
   products: [
-    .library(name: "GRPC", targets: ["GRPC"]),
-    .library(name: "CGRPCZlib", targets: ["CGRPCZlib"]),
+    .library(name: "GRPC", type: .dynamic, targets: ["GRPC"]),
+    .library(name: "CGRPCZlib", type: .dynamic, targets: ["CGRPCZlib"]),
     .executable(name: "protoc-gen-grpc-swift", targets: ["protoc-gen-grpc-swift"]),
   ],
   dependencies: [
