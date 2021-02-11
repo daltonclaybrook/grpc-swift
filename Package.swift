@@ -18,6 +18,9 @@ import PackageDescription
 
 let package = Package(
   name: "grpc-swift",
+  platforms: [
+    .watchOS(.v6)
+  ],
   products: [
     .library(name: "GRPC", targets: ["GRPC"]),
     .library(name: "CGRPCZlib", targets: ["CGRPCZlib"]),
@@ -31,7 +34,6 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-nio-http2.git", from: "1.16.1"),
     // TLS via SwiftNIO
     .package(url: "https://github.com/daltonclaybrook/swift-nio-ssl.git", .branch("watch-asm-macro")),
-//    .package(url: "https://github.com/daltonclaybrook/swift-nio-ssl.git", from: "2.8.0"),
     // Support for Network.framework where possible.
     .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.6.0"),
     // Extra NIO stuff; quiescing helpers.
@@ -40,8 +42,8 @@ let package = Package(
     // Official SwiftProtobuf library, for [de]serializing data to send on the wire.
     .package(
       name: "SwiftProtobuf",
-      url: "https://github.com/apple/swift-protobuf.git",
-      from: "1.9.0"
+      url: "https://github.com/daltonclaybrook/swift-protobuf.git",
+      .branch("dalton/lower-watch-deployment-target")
     ),
 
     // Logging API.
